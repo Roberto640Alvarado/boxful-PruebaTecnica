@@ -120,7 +120,7 @@ const OrdenForm = () => {
                 <Col span={6}>
                     <Text className="label">Teléfono</Text>
                     <Input
-                        type="text"
+                        type="number"
                         addonBefore={
                             <Select
                                 value={countryCode}
@@ -206,7 +206,7 @@ const OrdenForm = () => {
             </Row>
 
             <Row justify="end" style={{ marginTop: '20px' }}>
-                <Button className="next-button" onClick={handleSubmit}>
+                <Button className="submit-button" onClick={handleSubmit}>
                     Siguiente <ArrowRightOutlined />
                 </Button>
             </Row>

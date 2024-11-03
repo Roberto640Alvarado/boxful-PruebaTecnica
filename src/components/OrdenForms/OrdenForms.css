@@ -78,16 +78,23 @@
     box-shadow: none !important;
 }
 
-.next-button {
-    background-color: var(--button-background);
-    color: var(--button-color);
-    border: none;
+.submit-button {
+    width: 150px; 
+    height: 48px; 
+    font-size: 16px; 
     border-radius: 8px;
-    padding: 14px 30px;
-    font-size: 18px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+}
+
+.submit-button {
+    background-color: #3366FF; 
+    border: none; 
+    color: #ffffff; 
+}
+.submit-button:hover {
+    background-color: #274bdb; 
 }
 
 .next-button:hover {

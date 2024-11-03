@@ -2,6 +2,8 @@ import './PackageForms.css';
 import React, { useState } from 'react';
 import 'antd/dist/reset.css';
 import packageimage from '../../assets/Package.png';
+import orderService from '../../services/orderServices';
+import { toast } from 'react-toastify';
 
 import { Typography, Row, Col, Input, Button, Divider, Card } from 'antd';
 import { PlusOutlined, DeleteOutlined, ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
@@ -55,9 +57,35 @@ const PackageForm = () => {
         setPackages(updatedPackages);
     };
 
-    const handleSend = () => {
-        console.log("Order Data:", formDataOrden); //Datos de OrdenForm
-        console.log(packages);
+    const handleSend = async () => {
+
+        if (packages.length === 0) { //Validar que haya al menos un bulto
+            toast.error("Debes agregar al menos un bulto");
+            return;
+        }
+
+        //Convertir los datos de los bultos a números
+        const formattedPackages = packages.map(pkg => ({
+            largo: parseFloat(pkg.largo),
+            alto: parseFloat(pkg.alto),
+            ancho: parseFloat(pkg.ancho),
+            peso: parseFloat(pkg.peso),
+            contenido: pkg.contenido
+        }));
+
+        const orderData = { //Uniformar los datos de la orden
+            ...formDataOrden,
+            packages: formattedPackages,
+        };
+    
+        try {
+            const response = await orderService.createOrder(orderData); //Crear Orden
+            console.log("Orden creada exitosamente:", response); //Solo para verificar en consola que se creó la orden
+            toast.success("Orden creada exitosamente"); 
+        } catch (error) {
+            console.error("Error al crear la orden:", error);
+            toast.error("Error al crear la orden"); 
+        }
     };
 
     const handleBack = () => {
