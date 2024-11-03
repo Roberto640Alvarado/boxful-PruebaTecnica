@@ -1,0 +1,15 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --heading-color: #4A4A4A;
+  --text-color: #666666;
+  --accent-color: #3C4A5F;
+  --label-color: #8c8c8c;
+  --background-color: #ffffff;
+  --button-background: #1890ff;
+  --button-color: #fff;
+}

@@ -1,0 +1,195 @@
+
+.main-box {
+    margin-top: 20px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.accent {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.label {
+    display: block;
+    color: var(--label-color);
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.input-box,
+.input-field,
+.ant-picker {
+    width: 100%;
+    border-radius: 8px;
+    height: 45px;
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #d9d9d9;
+}
+
+.input-field:focus,
+.input-box:focus-within,
+.ant-picker-focused {
+    border-color: #1890ff;
+    outline: none;
+}
+
+.long-input {
+    width: 100%;
+}
+
+.phone-input .ant-input-group-addon {
+    background-color: #f5f7fa;
+    border: none;
+    padding: 0 8px;
+}
+
+.country-select .ant-select-selection-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.input-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.location-icon {
+    width: 20px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.textarea-field {
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 12px;
+    resize: vertical;
+}
+
+.no-border .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.next-button {
+    background-color: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    border-radius: 8px;
+    padding: 14px 30px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.next-button:hover {
+    background-color: #1070e0;
+}
+
+.input-box .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+.date-picker {
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+    font-size: 16px;
+    padding-left: 40px;
+    background-image: url('../../assets/calendar.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+    color: var(--text-color);
+}
+
+.date-picker .ant-picker-input input::placeholder {
+    color: #bfbfbf;
+}
+
+.country-select .ant-select-selector {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+.input-field {
+    height: 45px;
+    font-size: 16px;
+    padding-left: 12px;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+}
+
+@media (max-width: 768px) {
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .main-box {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .ant-row {
+        flex-direction: column;
+        gap: 16px; 
+        width: 100%;
+    }
+
+    .label, .input-box, .input-field, .country-select, .textarea-field, .date-picker {
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .label {
+        text-align: left;
+        margin-bottom: 4px;
+    }
+
+    .next-button {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+        margin-top: 20px;
+        border-radius: 8px;
+    }
+
+    .phone-input .ant-input-group-addon {
+        width: auto;
+        padding: 0;
+    }
+
+    .input-with-icon {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .location-icon {
+        margin-right: 10px;
+        width: 24px;
+    }
+}

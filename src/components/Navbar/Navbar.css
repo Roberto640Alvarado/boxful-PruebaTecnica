@@ -1,0 +1,13 @@
+.navbar-header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-logo-container {
+    float: left;
+    padding: 10px;
+}
+
+.navbar-logo {
+    width: 100px;
+}
