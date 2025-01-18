@@ -1,13 +1,18 @@
 import { Layout, Button } from 'antd';
 import logo from '../../assets/boxful_logo.png';
 import './Navbar.css';
+import context from '../../Context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const { Header } = Layout;
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    console.log("Sesión cerrada");
-  };
+    context.logout();
+    navigate('/Login');
+}
 
   return (
     <Header className="navbar-header">

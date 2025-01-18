@@ -88,13 +88,18 @@
     font-size: 14px;
     color: var(--accent-color);
     text-decoration: none;
+    cursor: pointer; 
+    background: none;
+    border: none; 
+    padding: 0; 
     transition: color 0.3s ease;
-  }
-  
-  .register-link:hover {
-    color: #096dd9;
-    text-decoration: underline;
-  }
+}
+
+.register-link:hover {
+    color: #096dd9; 
+    text-decoration: underline; 
+}
+
   
   .password-input-container {
     position: relative;
