@@ -4,6 +4,7 @@ import 'antd/dist/reset.css';
 import packageimage from '../../assets/Package.png';
 import orderService from '../../services/orderServices';
 import { toast } from 'react-toastify';
+import context from '../../Context/AuthContext';
 
 import { Typography, Row, Col, Input, Button, Divider, Card } from 'antd';
 import { PlusOutlined, DeleteOutlined, ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
@@ -22,11 +23,11 @@ const PackageForm = () => {
     const [packages, setPackages] = useState([]);
     //Estado para guardar los datos de los bultos
     const [formData, setFormData] = useState({
-        largo: '',
-        alto: '',
-        ancho: '',
-        peso: '',
-        contenido: ''
+        length: '',
+        height: '',
+        width: '',
+        weight: '',
+        content: ''
     });
 
     //Función para manejar los cambios en los inputs
@@ -41,7 +42,7 @@ const PackageForm = () => {
     //Función para agregar los bultos
     const addPackage = () => {
         setPackages([...packages, formData]);
-        setFormData({ largo: '', alto: '', ancho: '', peso: '', contenido: '' });
+        setFormData({ length: '', height: '', width: '', weight: '', content: '' });
     };
 
     //Función para eliminar los bultos
@@ -66,11 +67,11 @@ const PackageForm = () => {
 
         //Convertir los datos de los bultos a números
         const formattedPackages = packages.map(pkg => ({
-            largo: parseFloat(pkg.largo),
-            alto: parseFloat(pkg.alto),
-            ancho: parseFloat(pkg.ancho),
-            peso: parseFloat(pkg.peso),
-            contenido: pkg.contenido
+            length: parseFloat(pkg.length),
+            height: parseFloat(pkg.height),
+            width: parseFloat(pkg.width),
+            weight: parseFloat(pkg.weight),
+            content: pkg.content
         }));
 
         const orderData = { //Uniformar los datos de la orden
@@ -79,7 +80,8 @@ const PackageForm = () => {
         };
     
         try {
-            const response = await orderService.createOrder(orderData); //Crear Orden
+            let token = context.getToken();
+            const response = await orderService.createOrder(orderData,token); //Crear Orden
             console.log("Orden creada exitosamente:", response); //Solo para verificar en consola que se creó la orden
             toast.success("Orden creada exitosamente"); 
         } catch (error) {
@@ -106,25 +108,25 @@ const PackageForm = () => {
                         <div className="group-juntos">
                             <div>
                                 <Text className="label">Largo</Text>
-                                <Input className="input-package" suffix="cm" placeholder="0" type="number" name="largo" value={formData.largo} onChange={handleInputChange} />
+                                <Input className="input-package" suffix="cm" placeholder="0" type="number" name="length" value={formData.length} onChange={handleInputChange} />
                             </div>
                             <div>
                                 <Text className="label">Alto</Text>
-                                <Input className="input-package" suffix="cm" placeholder="0" type="number" name="alto" value={formData.alto} onChange={handleInputChange} />
+                                <Input className="input-package" suffix="cm" placeholder="0" type="number" name="height" value={formData.height} onChange={handleInputChange} />
                             </div>
                             <div>
                                 <Text className="label">Ancho</Text>
-                                <Input className="input-package" suffix="cm" placeholder="0" type="number" name="ancho" value={formData.ancho} onChange={handleInputChange} />
+                                <Input className="input-package" suffix="cm" placeholder="0" type="number" name="width" value={formData.width} onChange={handleInputChange} />
                             </div>
                         </div>
                     </Col>
                     <Col span={3}>
                         <Text className="label">Peso en libras</Text>
-                        <Input className='input-package' suffix="lb" placeholder="0" type="number" name="peso" value={formData.peso} onChange={handleInputChange} />
+                        <Input className='input-package' suffix="lb" placeholder="0" type="number" name="weight" value={formData.weight} onChange={handleInputChange} />
                     </Col>
                     <Col span={10}>
                         <Text className="label">Contenido</Text>
-                        <Input className='input-package' placeholder="Ingresa el contenido..." name="contenido" value={formData.contenido} onChange={handleInputChange} />
+                        <Input className='input-package' placeholder="Ingresa el contenido..." name="content" value={formData.content} onChange={handleInputChange} />
                     </Col>
                 </Row>
                 <Row justify="end">
@@ -147,11 +149,11 @@ const PackageForm = () => {
                                 <Row gutter={16} align="middle">
                                     <Col span={3}>
                                         <Text className="label">Peso en libras</Text>
-                                        <Input className="input-package1" value={pkg.peso} suffix="lb" type="number" onChange={(e) => handlePackageChange(index, 'peso', e.target.value)} />
+                                        <Input className="input-package1" value={pkg.weight} suffix="lb" type="number" onChange={(e) => handlePackageChange(index, 'weight', e.target.value)} />
                                     </Col>
                                     <Col span={10}>
                                         <Text className="label">Contenido</Text>
-                                        <Input className="input-package" value={pkg.contenido} onChange={(e) => handlePackageChange(index, 'contenido', e.target.value)} />
+                                        <Input className="input-package" value={pkg.content} onChange={(e) => handlePackageChange(index, 'content', e.target.value)} />
                                     </Col>
 
                                     <Col span={3}>
@@ -163,15 +165,15 @@ const PackageForm = () => {
                                         <div className="group-juntos">
                                             <div>
                                                 <Text className="label">Largo</Text>
-                                                <Input className="input-package" value={pkg.largo} suffix="cm" type="number" style={{ width: '80px', marginRight: '8px' }} onChange={(e) => handlePackageChange(index, 'largo', e.target.value)} />
+                                                <Input className="input-package" value={pkg.length} suffix="cm" type="number" style={{ width: '80px', marginRight: '8px' }} onChange={(e) => handlePackageChange(index, 'length', e.target.value)} />
                                             </div>
                                             <div>
                                                 <Text className="label">Alto</Text>
-                                                <Input className="input-package" value={pkg.alto} suffix="cm" type="number" style={{ width: '80px', marginRight: '8px' }} onChange={(e) => handlePackageChange(index, 'alto', e.target.value)} />
+                                                <Input className="input-package" value={pkg.height} suffix="cm" type="number" style={{ width: '80px', marginRight: '8px' }} onChange={(e) => handlePackageChange(index, 'height', e.target.value)} />
                                             </div>
                                             <div>
                                                 <Text className="label">Ancho</Text>
-                                                <Input className="input-package" value={pkg.ancho} suffix="cm" type="number" style={{ width: '80px' }} onChange={(e) => handlePackageChange(index, 'ancho', e.target.value)} />
+                                                <Input className="input-package" value={pkg.width} suffix="cm" type="number" style={{ width: '80px' }} onChange={(e) => handlePackageChange(index, 'width', e.target.value)} />
                                             </div>
                                         </div>
                                     </Col>
