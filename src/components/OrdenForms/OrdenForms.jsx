@@ -123,6 +123,7 @@ const OrdenForm = () => {
                         type="number"
                         addonBefore={
                             <Select
+                                className='phone-select'
                                 value={countryCode}
                                 onChange={handleCountryChange}
                             >
@@ -134,8 +135,8 @@ const OrdenForm = () => {
                                 </Option>
                             </Select>
                         }
-                        placeholder="Número de teléfono"
-                        className="no-border "
+                        placeholder="Teléfono"
+                        className="input-select"
                         value={phoneNumber}
                         onChange={handlePhoneChange}
                     />

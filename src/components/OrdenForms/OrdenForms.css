@@ -40,18 +40,6 @@
     width: 100%;
 }
 
-.phone-input .ant-input-group-addon {
-    background-color: #f5f7fa;
-    border: none;
-    padding: 0 8px;
-}
-
-.country-select .ant-select-selection-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
 .input-with-icon {
     display: flex;
     align-items: center;
@@ -140,6 +128,23 @@
     padding-left: 12px;
     border-radius: 8px;
     border: 1px solid #d9d9d9;
+}
+
+.input-select input {
+    height: 45px; 
+    font-size: 16px; 
+    padding-left: 12px; 
+    line-height: 45px; 
+}
+.input-select {
+    height: 45px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: 1px ;
+}
+
+.ant-input-group {
+    height: auto;
 }
 
 @media (max-width: 768px) {
