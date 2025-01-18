@@ -55,7 +55,7 @@ const OrdenForm = () => {
             instructions,
         };
 
-        navigate('/package', { state: formData });
+        navigate('/Home/package', { state: formData });
     };
 
     return (

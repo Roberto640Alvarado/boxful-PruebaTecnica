@@ -82,7 +82,6 @@ const PackageForm = () => {
         try {
             let token = context.getToken();
             const response = await orderService.createOrder(orderData,token); //Crear Orden
-            console.log("Orden creada exitosamente:", response); //Solo para verificar en consola que se creó la orden
             toast.success("Orden creada exitosamente"); 
         } catch (error) {
             console.error("Error al crear la orden:", error);
@@ -91,7 +90,7 @@ const PackageForm = () => {
     };
 
     const handleBack = () => {
-        navigate('/');
+        navigate('/Home');
     }
 
     return (
