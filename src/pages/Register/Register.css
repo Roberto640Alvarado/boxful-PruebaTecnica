@@ -1,0 +1,121 @@
+
+  .navbar-logo {
+    width: 100px;
+  }
+  
+  .register-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+  }
+  
+  .carousel-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .carousel-header {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .carousel-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  .form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    font-size: 28px;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .form-input {
+    width: 80%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--label-color);
+    transition: all 0.3s ease;
+  }
+  
+  .form-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(24, 144, 255, 0.5);
+  }
+  
+  .form-button {
+    width: 80%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #40a9ff;
+  }
+  
+  .login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .login-link:hover {
+    color: #096dd9;
+    text-decoration: underline;
+  }
+
+  .password-input-container {
+    position: relative;
+    width: 80%;
+    margin: 10px 0;
+  }
+  
+  .form-input.password-input {
+    width: 100%;
+    padding-right: 40px;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+  }
+  
+  .eye-icon:hover {
+    color: var(--accent-color);
+  }
+  
