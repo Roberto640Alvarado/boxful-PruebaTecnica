@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://boxful-api-2025.onrender.com';
 
 //Crear una orden
 const createOrder = async (orderData,token) => {
